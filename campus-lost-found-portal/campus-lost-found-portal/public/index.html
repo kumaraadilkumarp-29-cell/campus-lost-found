@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Campus Lost &amp; Found · One register for everything you lose</title>
+  <meta name="description" content="Report lost or found belongings on campus, search live listings and get your things back through a verified claim workflow.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 rx=%278%27 fill=%27%230e7c66%27/%3E%3Cpath d=%27M10 13h12l-1.6 10.5a2 2 0 0 1-2 1.5h-4.8a2 2 0 0 1-2-1.5z%27 fill=%27%23f7f4ed%27/%3E%3Cpath d=%27M13 13a3 3 0 0 1 6 0%27 stroke=%27%23f7f4ed%27 stroke-width=%272%27 fill=%27none%27/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body data-page="home">
+  <a class="sr-only" href="#main">Skip to content</a>
+  <header class="site-header" id="site-header"></header>
+
+  <main id="main">
+    <section class="hero">
+      <div class="container hero-inner">
+        <p class="eyebrow">SAI University · Campus register</p>
+        <h1>Lost something? <em>Find it back</em> in one place.</h1>
+        <p class="hero-sub">
+          Every lost and found report on campus, searchable in seconds. Report what you
+          lost, list what you found, and settle it with a verified claim instead of a
+          hundred WhatsApp forwards.
+        </p>
+        <div class="hero-actions">
+          <a class="btn" href="/report.html?type=lost">Report a lost item</a>
+          <a class="btn btn-outline" href="/report.html?type=found">I found something</a>
+        </div>
+        <div class="hero-stats">
+          <div class="hero-stat"><b id="stat-total">—</b><span>Live listings</span></div>
+          <div class="hero-stat"><b id="stat-lost">—</b><span>Lost reports</span></div>
+          <div class="hero-stat"><b id="stat-found">—</b><span>Found reports</span></div>
+        </div>
+      </div>
+    </section>
+
+    <div class="search-wrap">
+      <div class="container">
+        <form class="search-panel" id="search-form" role="search">
+          <div class="search-grid">
+            <div class="field search-field">
+              <label for="search-input">Search the register</label>
+              <input type="search" id="search-input" name="search" placeholder="Try “black wallet”, “id card”, “bottle”…" autocomplete="off">
+            </div>
+            <div class="field">
+              <label for="filter-type">Type</label>
+              <select id="filter-type" name="type">
+                <option value="">Lost &amp; found</option>
+                <option value="lost">Lost only</option>
+                <option value="found">Found only</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="filter-category">Category</label>
+              <select id="filter-category" name="category"><option value="">All categories</option></select>
+            </div>
+            <div class="field">
+              <label for="filter-location">Campus zone</label>
+              <select id="filter-location" name="location"><option value="">Everywhere</option></select>
+            </div>
+            <div class="field search-submit">
+              <label for="search-submit" class="sr-only">Search</label>
+              <button class="btn" type="submit" id="search-submit">Search</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <section class="section container" id="browse">
+      <div class="section-head">
+        <div>
+          <h2 class="section-title" id="results-title">Recently reported</h2>
+          <p class="section-sub" id="results-sub">The newest reports from across the campus.</p>
+        </div>
+        <div class="row">
+          <label class="sr-only" for="sort-select">Sort listings</label>
+          <select id="sort-select" style="width:auto">
+            <option value="newest">Newest first</option>
+            <option value="date">Date of incident</option>
+            <option value="title">Title A–Z</option>
+            <option value="popular">Most viewed</option>
+          </select>
+          <a class="btn btn-outline btn-sm" href="/report.html">+ New report</a>
+        </div>
+      </div>
+
+      <div class="chips" id="category-chips" style="margin-bottom: 22px"></div>
+
+      <div class="items-grid" id="items-grid" aria-live="polite"></div>
+      <nav class="pagination" id="pagination" aria-label="Listing pages"></nav>
+    </section>
+
+    <section class="section container">
+      <div class="section-head">
+        <div>
+          <h2 class="section-title">How the register works</h2>
+          <p class="section-sub">Four steps, one verified handover.</p>
+        </div>
+      </div>
+      <div class="steps">
+        <article class="step">
+          <h3>Report it</h3>
+          <p>Describe the item, the zone and the date. Add a photo if you have one. Two minutes, no forms to print.</p>
+        </article>
+        <article class="step">
+          <h3>Match it</h3>
+          <p>The moment you post, the portal looks for the opposite report in the same category and alerts both sides.</p>
+        </article>
+        <article class="step">
+          <h3>Claim it</h3>
+          <p>Explain privately why the item is yours. Only the person who filed the report can read your proof.</p>
+        </article>
+        <article class="step">
+          <h3>Return it</h3>
+          <p>Approve the claim, meet at a public campus spot, and the listing closes as recovered.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section container">
+      <div class="safety-panel">
+        <div>
+          <h2>Hand it back safely</h2>
+          <p>
+            The register never publishes phone numbers, room numbers or student IDs.
+            Every handover happens on campus, in daylight, with a witness if you can.
+          </p>
+        </div>
+        <ul class="safety-list">
+          <li><b>01</b> Meet at the security desk, library entrance or canteen — never a hostel room.</li>
+          <li><b>02</b> Ask for one detail that is not in the public description.</li>
+          <li><b>03</b> Never pay a “finder’s fee” to recover your own property.</li>
+          <li><b>04</b> Report anything suspicious to the campus security office.</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" id="site-footer"></footer>
+  <div class="toast-stack" id="toast-stack"></div>
+  <script type="module" src="/js/home.js"></script>
+</body>
+</html>

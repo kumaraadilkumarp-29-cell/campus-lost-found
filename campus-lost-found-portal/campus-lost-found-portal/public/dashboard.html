@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>My dashboard · Campus Lost &amp; Found</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 rx=%278%27 fill=%27%230e7c66%27/%3E%3Cpath d=%27M10 13h12l-1.6 10.5a2 2 0 0 1-2 1.5h-4.8a2 2 0 0 1-2-1.5z%27 fill=%27%23f7f4ed%27/%3E%3Cpath d=%27M13 13a3 3 0 0 1 6 0%27 stroke=%27%23f7f4ed%27 stroke-width=%272%27 fill=%27none%27/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body data-page="dashboard">
+  <header class="site-header" id="site-header"></header>
+  <main id="main" class="page">
+    <div class="container">
+      <div class="row-between" style="margin-bottom: 26px">
+        <div>
+          <p class="eyebrow">Your workspace</p>
+          <h1 style="margin-bottom: 4px">Hello, <span id="user-name">student</span></h1>
+          <p class="muted" id="user-meta" style="margin: 0"></p>
+        </div>
+        <div class="row">
+          <a class="btn btn-outline btn-sm" href="/report.html?type=lost">Report lost</a>
+          <a class="btn btn-sm" href="/report.html?type=found">Report found</a>
+        </div>
+      </div>
+
+      <div class="stat-grid">
+        <div class="stat-card"><div class="stat-label">My listings</div><div class="stat-value" id="stat-listings">0</div><div class="stat-note">reports you filed</div></div>
+        <div class="stat-card"><div class="stat-label">Open</div><div class="stat-value found" id="stat-open">0</div><div class="stat-note">still being matched</div></div>
+        <div class="stat-card"><div class="stat-label">Claims I sent</div><div class="stat-value" id="stat-sent">0</div><div class="stat-note">pending or decided</div></div>
+        <div class="stat-card"><div class="stat-label">Claims to review</div><div class="stat-value lost" id="stat-review">0</div><div class="stat-note">waiting on you</div></div>
+      </div>
+
+      <div class="tabs" role="tablist" aria-label="Dashboard sections">
+        <button class="tab" role="tab" id="tab-listings" aria-controls="panel-listings" aria-selected="true">My reports <span class="tab-count" id="count-listings">0</span></button>
+        <button class="tab" role="tab" id="tab-claims" aria-controls="panel-claims" aria-selected="false">My claims <span class="tab-count" id="count-claims">0</span></button>
+        <button class="tab" role="tab" id="tab-received" aria-controls="panel-received" aria-selected="false">Claims received <span class="tab-count" id="count-received">0</span></button>
+        <button class="tab" role="tab" id="tab-alerts" aria-controls="panel-alerts" aria-selected="false">Notifications <span class="tab-count" id="count-alerts">0</span></button>
+      </div>
+
+      <section class="tab-panel" id="panel-listings" role="tabpanel" aria-labelledby="tab-listings">
+        <div id="listings-root"></div>
+      </section>
+      <section class="tab-panel" id="panel-claims" role="tabpanel" aria-labelledby="tab-claims" hidden>
+        <div id="claims-root"></div>
+      </section>
+      <section class="tab-panel" id="panel-received" role="tabpanel" aria-labelledby="tab-received" hidden>
+        <div id="received-root"></div>
+      </section>
+      <section class="tab-panel" id="panel-alerts" role="tabpanel" aria-labelledby="tab-alerts" hidden>
+        <div class="panel">
+          <div class="panel-head">
+            <h3>Notifications</h3>
+            <button class="btn btn-outline btn-sm" id="mark-all-btn" type="button">Mark all as read</button>
+          </div>
+          <div id="alerts-root"></div>
+        </div>
+      </section>
+    </div>
+  </main>
+  <footer class="site-footer" id="site-footer"></footer>
+  <div class="toast-stack" id="toast-stack"></div>
+  <script type="module" src="/js/dashboard.js"></script>
+</body>
+</html>

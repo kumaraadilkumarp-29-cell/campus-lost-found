@@ -1,0 +1,93 @@
+==============================================================
+  CAMPUS LOST & FOUND PORTAL  -  START HERE
+==============================================================
+
+A complete full-stack application: Express API + MongoDB + a
+hand-written frontend. Nothing to build, no framework to install.
+
+--------------------------------------------------------------
+1. WHAT YOU NEED
+--------------------------------------------------------------
+   - Node.js 18 or newer        (node -v)
+   - MongoDB, one of these:
+       a) local:  install MongoDB Community Server and make
+                  sure it runs on 127.0.0.1:27017
+       b) Atlas:  create a free cluster, add a database user,
+                  and allow your IP under Network Access
+
+--------------------------------------------------------------
+2. SETUP (4 commands)
+--------------------------------------------------------------
+   cd campus-lost-found-portal
+   npm install
+   copy .env.example .env      (macOS/Linux: cp .env.example .env)
+   npm run seed
+   npm start
+
+   Then open  http://localhost:5000
+
+   If MongoDB is not reachable the server prints a clear message
+   instead of starting half-broken. Read it before changing code.
+
+--------------------------------------------------------------
+3. DEMO LOGINS
+--------------------------------------------------------------
+   Admin     admin@campus.edu    Admin@12345
+   Student   aditi@campus.edu    Student@123
+   Student   rohan@campus.edu    Student@123
+   Student   meera@campus.edu    Student@123
+
+--------------------------------------------------------------
+4. CHECK IT WORKS (2 minutes)
+--------------------------------------------------------------
+   [ ] Home page shows 12 listings and the three hero counters
+   [ ] Search "bottle" and filter Type = Found -> 1 result
+   [ ] Sign in as aditi, report a lost item, see it on the
+       dashboard and in "My reports"
+   [ ] Sign in as rohan, open aditi's item, send a claim
+   [ ] Back as aditi: Dashboard -> Claims received -> Approve
+   [ ] The item now shows status "recovered"
+   [ ] Sign in as admin: /admin.html shows the charts
+   [ ] Resize to phone width: no sideways scrolling
+
+--------------------------------------------------------------
+5. POSTMAN TESTS
+--------------------------------------------------------------
+   Import into Postman:
+       postman/Campus-Lost-Found.postman_collection.json
+       postman/Campus-Lost-Found.postman_environment.json
+
+   Run the collection top to bottom (requests are chained).
+   Expected: 45 requests, 129 assertions, 0 failures.
+
+   No Postman installed? Run the same suite from the terminal:
+       npm test
+
+   Re-seed before a fresh run if you want a clean slate:
+       npm run seed -- --force
+
+--------------------------------------------------------------
+6. WHERE THINGS LIVE
+--------------------------------------------------------------
+   src/app.js              middleware pipeline and routers
+   src/models/             User, Item, Claim, Notification
+   src/controllers/        one file per domain, ownership checks
+   public/css/styles.css   the whole design system
+   public/js/              one ES module per page
+   docs/API.md             every endpoint with examples
+   docs/TESTING.md         the test matrix and results
+   docs/PROJECT-STRUCTURE.md  file-by-file map for the report
+
+--------------------------------------------------------------
+7. COMMON PROBLEMS
+--------------------------------------------------------------
+   "MongoDB connection failed"
+       -> mongod not running, or Atlas IP not allowed.
+   "MONGO_URI is not set"
+       -> you skipped copying .env.example to .env.
+   Port 5000 already in use
+       -> change PORT in .env.
+   "Too many attempts" on login
+       -> the rate limiter; wait 15 minutes or restart the server.
+
+==============================================================

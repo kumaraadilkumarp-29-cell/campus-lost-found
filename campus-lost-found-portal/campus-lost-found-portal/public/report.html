@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Report an item · Campus Lost &amp; Found</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 rx=%278%27 fill=%27%230e7c66%27/%3E%3Cpath d=%27M10 13h12l-1.6 10.5a2 2 0 0 1-2 1.5h-4.8a2 2 0 0 1-2-1.5z%27 fill=%27%23f7f4ed%27/%3E%3Cpath d=%27M13 13a3 3 0 0 1 6 0%27 stroke=%27%23f7f4ed%27 stroke-width=%272%27 fill=%27none%27/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body data-page="report">
+  <header class="site-header" id="site-header"></header>
+  <main id="main" class="page">
+    <div class="container" style="max-width: 860px">
+      <p class="breadcrumb"><a href="/">Home</a> / <span id="crumb-current">New report</span></p>
+      <div class="page-head" style="padding-top: 0">
+        <h1 id="form-title">Report an item</h1>
+        <p id="form-subtitle">Tell us what happened. The more precise the details, the faster it comes back.</p>
+      </div>
+
+      <div class="panel" style="margin-top: 26px">
+        <div class="form-errors" id="form-errors" hidden></div>
+
+        <form id="report-form" novalidate>
+          <div class="stack">
+            <div class="field">
+              <span class="field-label" style="font-size:.76rem;font-weight:650;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3)">What kind of report is this?</span>
+              <div class="segmented" role="group" aria-label="Report type" id="type-toggle">
+                <button type="button" data-type="lost" aria-pressed="false">I lost something</button>
+                <button type="button" data-type="found" aria-pressed="true">I found something</button>
+              </div>
+              <input type="hidden" id="type" name="type" value="found">
+            </div>
+
+            <div class="field">
+              <label for="title">Item title</label>
+              <input type="text" id="title" name="title" maxlength="90" required placeholder="e.g. Black Dell laptop bag with a broken zip">
+              <span class="char-count" id="title-count">0 / 90</span>
+            </div>
+
+            <div class="form-grid">
+              <div class="field">
+                <label for="category">Category</label>
+                <select id="category" name="category" required><option value="">Choose a category</option></select>
+              </div>
+              <div class="field">
+                <label for="location">Campus zone</label>
+                <select id="location" name="location" required><option value="">Choose a zone</option></select>
+              </div>
+              <div class="field">
+                <label for="dateLostOrFound">Date lost or found</label>
+                <input type="date" id="dateLostOrFound" name="dateLostOrFound" required>
+              </div>
+              <div class="field">
+                <label for="contactInfo">How should people reach you?</label>
+                <input type="text" id="contactInfo" name="contactInfo" maxlength="120" placeholder="Contact through the portal">
+                <span class="hint">Shown on the listing. Never put a room number here.</span>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="description">Public description</label>
+              <textarea id="description" name="description" maxlength="1000" required placeholder="Where exactly, what it looks like, any marks or contents. Keep unique proof details out of this box."></textarea>
+              <span class="char-count" id="description-count">0 / 1000</span>
+              <span class="hint">At least 20 characters. Do not publish the detail you would use to prove ownership.</span>
+            </div>
+
+            <div class="field">
+              <label for="image">Photo <span class="muted small">(optional, JPEG/PNG/WebP, max 2 MB)</span></label>
+              <input type="file" id="image" name="image" accept="image/jpeg,image/png,image/webp">
+              <div id="image-preview" style="margin-top: 10px"></div>
+            </div>
+
+            <div class="row-between">
+              <button class="btn btn-ghost" type="button" id="cancel-btn">Cancel</button>
+              <button class="btn" type="submit" id="submit-btn">Submit report</button>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <section id="match-panel" class="panel" style="margin-top: 24px" hidden>
+        <div class="panel-head">
+          <h2>Possible matches</h2>
+          <span class="badge badge-found">Automatic check</span>
+        </div>
+        <p class="muted small" style="margin-top:-8px">
+          These reports describe something similar from the other side. Open one and check before you submit a claim.
+        </p>
+        <div class="match-list" id="match-list"></div>
+      </section>
+    </div>
+  </main>
+  <footer class="site-footer" id="site-footer"></footer>
+  <div class="toast-stack" id="toast-stack"></div>
+  <script type="module" src="/js/report.js"></script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Create an account · Campus Lost &amp; Found</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 rx=%278%27 fill=%27%230e7c66%27/%3E%3Cpath d=%27M10 13h12l-1.6 10.5a2 2 0 0 1-2 1.5h-4.8a2 2 0 0 1-2-1.5z%27 fill=%27%23f7f4ed%27/%3E%3Cpath d=%27M13 13a3 3 0 0 1 6 0%27 stroke=%27%23f7f4ed%27 stroke-width=%272%27 fill=%27none%27/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body data-page="register">
+  <header class="site-header" id="site-header"></header>
+  <main id="main">
+    <div class="auth-shell">
+      <aside class="auth-aside">
+        <p class="eyebrow">Join the register</p>
+        <h2>One account. Every report you will ever need.</h2>
+        <p>Students, staff and the security desk share one verified register — no notice boards, no lost WhatsApp threads.</p>
+        <ul class="auth-points">
+          <li><span class="tick">1</span> Report lost and found items in under two minutes</li>
+          <li><span class="tick">2</span> Get automatic duplicate alerts</li>
+          <li><span class="tick">3</span> Approve or decline claims from your dashboard</li>
+        </ul>
+      </aside>
+      <section class="auth-main">
+        <div class="auth-card">
+          <h1>Create an account</h1>
+          <p class="muted">Any campus email address works.</p>
+          <div class="form-errors" id="form-errors" hidden></div>
+          <form id="register-form" class="stack" novalidate>
+            <div class="field">
+              <label for="name">Full name</label>
+              <input type="text" id="name" name="name" autocomplete="name" required placeholder="Aditi Sharma">
+            </div>
+            <div class="field">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" autocomplete="email" required placeholder="you@campus.edu">
+            </div>
+            <div class="field">
+              <label for="department">Department <span class="muted small">(optional)</span></label>
+              <input type="text" id="department" name="department" placeholder="Computer Science">
+            </div>
+            <div class="field">
+              <label for="password">Password</label>
+              <input type="password" id="password" name="password" autocomplete="new-password" required placeholder="At least 8 characters">
+              <span class="hint">Minimum 8 characters. Stored as a bcrypt hash, never as text.</span>
+            </div>
+            <div class="field">
+              <label for="confirm">Confirm password</label>
+              <input type="password" id="confirm" name="confirm" autocomplete="new-password" required>
+            </div>
+            <button class="btn btn-block" type="submit" id="submit-btn">Create account</button>
+          </form>
+          <p class="auth-foot">Already registered? <a href="/login.html">Sign in</a></p>
+        </div>
+      </section>
+    </div>
+  </main>
+  <footer class="site-footer" id="site-footer"></footer>
+  <div class="toast-stack" id="toast-stack"></div>
+  <script type="module" src="/js/auth-page.js"></script>
+</body>
+</html>
